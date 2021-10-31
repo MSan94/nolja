@@ -1,4 +1,4 @@
 # nolja
 ## ToyProject
-- BackEnd
+- NoljaBackEnd - Java With SpringBoot
 - SpringBoot + Intellij + Java + MVC + MyBatis + PostgreSQL
