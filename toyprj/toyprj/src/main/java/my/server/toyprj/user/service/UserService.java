@@ -7,6 +7,5 @@ import java.util.List;
 
 @Service
 public interface UserService {
-    UserMapper mapper;
     public List<UserModel> getAllUser() throws Exception;
 }
