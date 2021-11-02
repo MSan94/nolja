@@ -4,11 +4,23 @@
 <mapper namespace="my.server.toyprj.user.dao.UserDao">
 
     <select id="getUser" resultType="my.server.toyprj.user.model.UserModel">
-
-            select *
-            from myprj.user_tb
-            where useridx = #{idx}
-
+        select *
+        from myprj.user_tb
+        where useridx = #{idx}
     </select>
+
+    <select id="selectUser" resultType="int">
+        SELECT
+            count(userName)
+        FROM
+            myprj.user_tb
+        WHERE username = #{userName}
+        And userpassword = #{userPassWord}
+    </select>
+
+    <insert id="insertUser" parameterType="my.server.toyprj.user.model.UserModel">
+
+    </insert>
+
 
 </mapper>

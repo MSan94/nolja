@@ -17,4 +17,15 @@ public class UserServiceImpl implements UserService {
     public UserModel getUser(int userIdx) throws Exception {
         return dao.getUser(userIdx);
     }
+
+    /**
+     * 회원등록
+     * @param userModel
+     * @return
+     * @throws Exception
+     */
+    @Override
+    public int selectUser(UserModel userModel) throws Exception {
+        return dao.selectUser(userModel);
+    }
 }
