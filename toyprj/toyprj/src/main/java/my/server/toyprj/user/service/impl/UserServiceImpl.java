@@ -28,4 +28,15 @@ public class UserServiceImpl implements UserService {
     public int selectUser(UserModel userModel) throws Exception {
         return dao.selectUser(userModel);
     }
+
+    /**
+     * 아이디 중복 체크
+     * @param id
+     * @return
+     * @throws Exception
+     */
+    @Override
+    public int selectId(String id) throws Exception {
+        return dao.selectId(id);
+    }
 }

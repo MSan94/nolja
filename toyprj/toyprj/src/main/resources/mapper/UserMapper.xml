@@ -14,9 +14,21 @@
             count(userName)
         FROM
             myprj.user_tb
-        WHERE username = #{userName}
-        And userpassword = #{userPassWord}
+        WHERE
+            username = #{userName}
+        AND
+            userpassword = #{userPassWord}
     </select>
+
+    <select id="selectId" parameterType="String" resultType="int">
+        SELECT
+            count(username)
+        FROM
+            myprj.user_tb
+        WHERE
+            username = #{id}
+    </select>
+
 
     <insert id="insertUser" parameterType="my.server.toyprj.user.model.UserModel">
 

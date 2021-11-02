@@ -11,4 +11,7 @@ public interface UserDao {
 
     /** 회원등록 **/
     public int selectUser(UserModel userModel) throws Exception;
+
+    /** 아이디 중복 체크 **/
+    public int selectId(String id) throws Exception;
 }
