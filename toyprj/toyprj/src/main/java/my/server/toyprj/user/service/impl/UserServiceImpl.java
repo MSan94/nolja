@@ -13,20 +13,20 @@ public class UserServiceImpl implements UserService {
     @Autowired
     private UserDao dao;
 
+
     @Override
-    public UserModel getUser(int userIdx) throws Exception {
-        return dao.getUser(userIdx);
+    public void insertHash(String hash) throws Exception {
+        dao.insertHash(hash);
     }
 
-    /**
-     * 회원등록
-     * @param userModel
-     * @return
-     * @throws Exception
-     */
     @Override
-    public int selectUser(UserModel userModel) throws Exception {
-        return dao.selectUser(userModel);
+    public String getHash() throws Exception {
+        return dao.getHash();
+    }
+
+    @Override
+    public String getId(String id) throws Exception {
+        return dao.getId(id);
     }
 
     /**
@@ -39,4 +39,21 @@ public class UserServiceImpl implements UserService {
     public int selectId(String id) throws Exception {
         return dao.selectId(id);
     }
+
+    /**
+     * 로그인
+     * @param userModel
+     * @return
+     * @throws Exception
+     */
+    @Override
+    public int selectUser(UserModel userModel) throws Exception {
+        return dao.selectUser(userModel);
+    }
+
+    @Override
+    public int insertUser(UserModel userModel) throws Exception {
+        return dao.insertUser(userModel);
+    }
+
 }

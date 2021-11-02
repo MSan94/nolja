@@ -3,6 +3,18 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="my.server.toyprj.user.dao.UserDao">
 
+    <insert id="insertHash" parameterType="String">
+        insert into myprj.hash_tb values(#{hash})
+    </insert>
+
+    <select id="getHash" resultType="String">
+        select * from myprj.hash_tb
+    </select>
+
+    <select id="getId" parameterType="String" resultType="String">
+        select userpassword from myprj.user_tb where username = #{id}
+    </select>
+
     <select id="getUser" resultType="my.server.toyprj.user.model.UserModel">
         select *
         from myprj.user_tb
@@ -31,7 +43,9 @@
 
 
     <insert id="insertUser" parameterType="my.server.toyprj.user.model.UserModel">
-
+        INSERT INTO
+            myprj.user_tb
+        VALUES(nextval('seq_user_tb'),#{userName},#{userPassWord},#{userEmail},#{userNick})
     </insert>
 
 
