@@ -12,7 +12,7 @@ public interface UserDao {
     /** 해쉬값 가져오기 **/
     public String getHash() throws Exception;
 
-    public String getId(String id) throws Exception;
+    public UserModel getUserInfo(String id) throws Exception;
 
     /** 로그인 **/
     public int selectUser(UserModel userModel) throws Exception;

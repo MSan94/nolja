@@ -25,8 +25,8 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public String getId(String id) throws Exception {
-        return dao.getId(id);
+    public UserModel getUserInfo(String id) throws Exception {
+        return dao.getUserInfo(id);
     }
 
     /**

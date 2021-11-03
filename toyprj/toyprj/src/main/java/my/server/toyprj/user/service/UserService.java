@@ -8,7 +8,7 @@ public interface UserService {
 
     /** 해쉬값 가져오기 **/
     public String getHash() throws Exception;
-    public String getId(String id) throws Exception;
+    public UserModel getUserInfo(String id) throws Exception;
     /** 아이디 중복 체크 **/
     public int selectId(String id) throws Exception;
     /** 로그인 **/

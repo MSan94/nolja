@@ -26,23 +26,20 @@ public class UserController {
 
     /** 해쉬값 가져오기 **/
 
-
     /** 로그인 **/
     @PostMapping("/select/user")
     public HashMap<String, Object> selectUser(@RequestParam("id") String id, @RequestParam("pw") String pw) throws Exception {
         HashMap<String, Object> map = new HashMap<>();
-        UserModel entity = new UserModel();
-        entity.setUserName(id);
+        UserModel userModel = service.getUserInfo(id);
         String hash = service.getHash();
-        String userpw = service.getId(id);
-        System.out.println("결과 : " + BCrypt.checkpw(pw,userpw));
-        entity.setUserPassWord(pw);
-        int result = service.selectUser(entity);
-        if(result < 1){
+
+        boolean validPw = BCrypt.checkpw(pw,userModel.getUserPassWord());
+
+        if(!validPw){
             map.put("result", "fail");
         }else{
             map.put("result", "success");
-            map.put("data",entity);
+            map.put("data",userModel);
         }
         return map;
     }
@@ -67,10 +64,9 @@ public class UserController {
         UserModel entity = new UserModel();
         HashMap<String, Object> map = new HashMap<>();
         String hash = service.getHash();
-        String bCryptPw = BCrypt.hashpw(pw,hash);
-        System.out.println("hash : " + hash + " / pw : " + pw + " / 결과 : " + bCryptPw);
+        String hashPw = BCrypt.hashpw(pw,hash);
         entity.setUserName(id);
-        entity.setUserPassWord(bCryptPw);
+        entity.setUserPassWord(hashPw);
         entity.setUserEmail(email);
         entity.setUserNick(nick);
         int result = service.insertUser(entity);

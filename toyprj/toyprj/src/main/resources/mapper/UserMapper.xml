@@ -11,14 +11,21 @@
         select * from myprj.hash_tb
     </select>
 
-    <select id="getId" parameterType="String" resultType="String">
-        select userpassword from myprj.user_tb where username = #{id}
+    <select id="getUserInfo" parameterType="String" resultType="my.server.toyprj.user.model.UserModel">
+        select
+            username,userpassword,useremail,usernick
+        from
+            myprj.user_tb
+        where
+            username = #{id}
     </select>
 
     <select id="getUser" resultType="my.server.toyprj.user.model.UserModel">
         select *
-        from myprj.user_tb
-        where useridx = #{idx}
+        from
+            myprj.user_tb
+        where
+            useridx = #{idx}
     </select>
 
     <select id="selectUser" resultType="int">
