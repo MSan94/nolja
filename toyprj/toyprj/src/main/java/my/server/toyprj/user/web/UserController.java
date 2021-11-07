@@ -32,7 +32,7 @@ public class UserController {
         HashMap<String, Object> map = new HashMap<>();
         UserModel userModel = service.getUserInfo(id);
         String hash = service.getHash();
-
+        System.out.println(userModel.getUserPassWord());
         boolean validPw = BCrypt.checkpw(pw,userModel.getUserPassWord());
 
         if(!validPw){
