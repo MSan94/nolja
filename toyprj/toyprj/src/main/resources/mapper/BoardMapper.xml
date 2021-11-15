@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="my.server.toyprj.dao.BoardDao">
+
+    <insert id="insertBoard" parameterType="my.server.toyprj.board.model.BoardModel">
+        insert into myprj.board_tb values(nextval('myprj.seq_board_tb'),#{writer},#{subject},#{gender},#{imgfile},'Y')
+    </insert>
+
+</mapper>

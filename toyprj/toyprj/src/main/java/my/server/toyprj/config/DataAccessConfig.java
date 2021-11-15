@@ -12,7 +12,7 @@ import org.springframework.core.io.support.PathMatchingResourcePatternResolver;
 import javax.sql.DataSource;
 
 @Configuration
-@MapperScan(basePackages = "my.server.toyprj.user.dao")
+@MapperScan(basePackages = "my.server.toyprj.dao" )
 public class DataAccessConfig {
 
     @Bean
@@ -20,7 +20,8 @@ public class DataAccessConfig {
         SqlSessionFactoryBean sessionFactoryBean = new SqlSessionFactoryBean();
         sessionFactoryBean.setDataSource(dataSource);
         sessionFactoryBean.setMapperLocations(
-                new PathMatchingResourcePatternResolver().getResource("classpath:mapper/UserMapper.xml")
+                new PathMatchingResourcePatternResolver().getResource("classpath:mapper/userMapper.xml"),
+                new PathMatchingResourcePatternResolver().getResource("classpath:mapper/BoardMapper.xml")
         );
         return sessionFactoryBean.getObject();
     }

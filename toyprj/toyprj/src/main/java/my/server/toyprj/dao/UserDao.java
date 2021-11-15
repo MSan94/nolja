@@ -1,4 +1,4 @@
-package my.server.toyprj.user.dao;
+package my.server.toyprj.dao;
 
 import my.server.toyprj.user.model.UserModel;
 import org.apache.ibatis.annotations.Mapper;
